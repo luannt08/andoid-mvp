@@ -1,15 +1,16 @@
-package luan.com.android_mvp.retrofit;
+package luan.com.androidmvp.retrofit;
 
 import java.util.List;
 
-import luan.com.android_mvp.entity.Photo;
+import luan.com.androidmvp.model.entity.Photo;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
 
-public interface APIService {
+public interface RetrofitService {
+
     @GET("photos")
-    Observable<List<Photo>> getPhotoNewWithOrderBy(
+    Observable<List<Photo>> getPhoto(
             @Query("access_token") String accessToken
     );
 }

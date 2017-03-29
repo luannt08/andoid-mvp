@@ -1,26 +1,26 @@
-package luan.com.android_mvp.entity;
+package luan.com.androidmvp.model.entity;
 
 import com.google.gson.annotations.SerializedName;
 
 public class Url {
     @SerializedName("full")
-    private String full;
+    private String mFull;
 
     @SerializedName("regular")
-    private String regular;
+    private String mRegular;
 
     @SerializedName("small")
-    private String small;
+    private String mSmall;
 
     public String getFull() {
-        return full;
+        return mFull;
     }
 
     public String getRegular() {
-        return regular;
+        return mRegular;
     }
 
     public String getSmall() {
-        return small;
+        return mSmall;
     }
 }

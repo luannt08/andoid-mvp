@@ -1,11 +1,14 @@
-package luan.com.android_mvp.base;
+package luan.com.androidmvp.base;
 
 
 import java.util.List;
 
-public interface Main {
+/*
+* This is base mvp class for Photo module
+*/
+public interface Photo {
 
-    interface Model extends Mvp.Model<Main.Presenter> {
+    interface Model extends Mvp.Model<Photo.Presenter> {
         void getDataFromServer(String url);
     }
 
@@ -13,7 +16,7 @@ public interface Main {
         void updateDataToView(List<?> data);
     }
 
-    interface Presenter extends Mvp.Presenter<Main.View, Main.Model> {
+    interface Presenter extends Mvp.Presenter<Photo.View, Photo.Model> {
         void requestToModelToGetData(String token);
 
         void getDataFromModel(List<?> data);

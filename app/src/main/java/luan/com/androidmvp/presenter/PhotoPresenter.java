@@ -1,15 +1,19 @@
-package luan.com.android_mvp.presenter;
-
+package luan.com.androidmvp.presenter;
 
 import java.util.List;
 
-import luan.com.android_mvp.base.Main;
+import luan.com.androidmvp.base.Photo;
+import luan.com.androidmvp.model.PhotoModel;
 
+public class PhotoPresenter implements Photo.Presenter {
 
-public class MainPresenter implements Main.Presenter {
+    private PhotoModel mModel;
+    private Photo.View mView;
 
-    private Main.Model mModel;
-    private Main.View mView;
+    public PhotoPresenter(PhotoModel mainModel) {
+        mModel = mainModel;
+        mModel.takePresenter(this);
+    }
 
     @Override
     public void requestToModelToGetData(String url) {
@@ -24,13 +28,8 @@ public class MainPresenter implements Main.Presenter {
     }
 
     @Override
-    public void takeView(Main.View view) {
+    public void takeView(Photo.View view) {
         mView = view;
-    }
-
-    @Override
-    public void takeModel(Main.Model model) {
-        mModel = model;
     }
 
     @Override

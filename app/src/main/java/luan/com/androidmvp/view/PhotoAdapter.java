@@ -1,4 +1,4 @@
-package luan.com.android_mvp.view;
+package luan.com.androidmvp.view;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,15 +10,15 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-import luan.com.android_mvp.R;
-import luan.com.android_mvp.entity.Photo;
+import luan.com.androidmvp.R;
+import luan.com.androidmvp.model.entity.Photo;
 
-public class MainAdapter extends RecyclerView.Adapter {
+public class PhotoAdapter extends RecyclerView.Adapter {
 
     private List<Photo> mPhotos;
     private Context mContext;
 
-    public MainAdapter(List<Photo> photos, Context context) {
+    public PhotoAdapter(List<Photo> photos, Context context) {
         mPhotos = photos;
         mContext = context;
     }
@@ -27,14 +27,14 @@ public class MainAdapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
 
-        MainViewHolder mainViewHolder = new MainViewHolder(itemView);
+        PhotoViewHolder mainViewHolder = new PhotoViewHolder(itemView);
 
         return mainViewHolder;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        MainViewHolder mainViewHolder = (MainViewHolder) holder;
+        PhotoViewHolder mainViewHolder = (PhotoViewHolder) holder;
         Photo photo = mPhotos.get(position);
 
         Glide.with(mContext)
