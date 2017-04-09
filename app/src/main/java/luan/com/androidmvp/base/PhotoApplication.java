@@ -6,7 +6,7 @@ import luan.com.androidmvp.dagger.component.DaggerRetrofitComponent;
 import luan.com.androidmvp.dagger.component.RetrofitComponent;
 import luan.com.androidmvp.dagger.module.RetrofitModule;
 
-public class PhotoAplication extends Application {
+public class PhotoApplication extends Application {
 
     private RetrofitComponent mRetrofitComponent;
 

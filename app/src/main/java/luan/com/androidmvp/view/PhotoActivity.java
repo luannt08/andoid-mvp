@@ -17,9 +17,10 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import luan.com.androidmvp.BuildConfig;
 import luan.com.androidmvp.R;
 import luan.com.androidmvp.base.Photo;
-import luan.com.androidmvp.base.PhotoAplication;
+import luan.com.androidmvp.base.PhotoApplication;
 import luan.com.androidmvp.dagger.component.DaggerPhotoComponent;
 import luan.com.androidmvp.dagger.component.RetrofitComponent;
 import luan.com.androidmvp.dagger.module.PhotoModule;
@@ -37,7 +38,7 @@ public class PhotoActivity extends AppCompatActivity implements Photo.View {
     public PhotoPresenter mMainPresenter;
 
     private List<luan.com.androidmvp.model.entity.Photo> mListPhotos;
-    private PhotoAdapter mMainAdapter;
+    private PhotoAdapter mPhotoAdapter;
     private LinearLayoutManager mLayoutManager;
 
     @Override
@@ -55,7 +56,7 @@ public class PhotoActivity extends AppCompatActivity implements Photo.View {
     @Override
     public void updateDataToView(List<?> data) {
         mListPhotos.addAll((Collection<? extends luan.com.androidmvp.model.entity.Photo>) data);
-        mMainAdapter.notifyDataSetChanged();
+        mPhotoAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -73,7 +74,7 @@ public class PhotoActivity extends AppCompatActivity implements Photo.View {
     }
 
     private void initDagger() {
-        RetrofitComponent retrofitComponent = ((PhotoAplication)getApplication()).getRetrofitComponent();
+        RetrofitComponent retrofitComponent = ((PhotoApplication)getApplication()).getRetrofitComponent();
         DaggerPhotoComponent
                 .builder()
                 .retrofitComponent(retrofitComponent)
@@ -89,10 +90,11 @@ public class PhotoActivity extends AppCompatActivity implements Photo.View {
     private void initInstance() {
         mLayoutManager = new LinearLayoutManager(getApplicationContext());
         mListPhotos = new ArrayList<>();
-        mMainAdapter = new PhotoAdapter(mListPhotos, getApplicationContext());
+        mPhotoAdapter = new PhotoAdapter(mListPhotos, getApplicationContext());
 
+        mRecylerViewPhoto.setHasFixedSize(true);
         mRecylerViewPhoto.setLayoutManager(mLayoutManager);
-        mRecylerViewPhoto.setAdapter(mMainAdapter);
-        mMainPresenter.requestToModelToGetData(getString(R.string.token));
+        mRecylerViewPhoto.setAdapter(mPhotoAdapter);
+        mMainPresenter.requestToModelToGetData(BuildConfig.TOKEN);
     }
 }

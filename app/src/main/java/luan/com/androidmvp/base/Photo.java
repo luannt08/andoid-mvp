@@ -4,7 +4,8 @@ package luan.com.androidmvp.base;
 import java.util.List;
 
 /*
-* This is base mvp class for Photo module
+* For each module, we declare the separated module to easy control
+* Ex : Photo module has sub mvp to control things of photo module.
 */
 public interface Photo {
 

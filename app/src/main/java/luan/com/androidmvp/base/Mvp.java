@@ -10,24 +10,21 @@ public interface Mvp {
     * base Model layer
     */
     interface Model <P>{
-        /*
-        * Pass the instance of Presenter in to Model
-        *
-        * @param presenter the instance of Presenter corresponding with Model
-        */
         void takePresenter(P presenter);
     }
 
+    /*
+    * base View layer
+    */
     interface View {
-        /*
-        * Show loading in View
-        * @param isShow boolean
-        * */
         void showLoading(boolean isShow);
 
         void showError();
     }
 
+    /*
+    * base Presenter layer
+    */
     interface Presenter<V, M> {
         void takeView(V view);
 

@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">android-mvp</string>
-    <string name="token">a81fef08f9c678f4d2f10622a5f344e297b740861154aa87cf0810c344f43f83</string>
     <string name="error">Error!</string>
 </resources>

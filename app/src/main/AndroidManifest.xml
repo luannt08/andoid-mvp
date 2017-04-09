@@ -9,7 +9,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name="luan.com.androidmvp.base.PhotoAplication"
+        android:name="luan.com.androidmvp.base.PhotoApplication"
         android:theme="@style/AppTheme">
         <activity
             android:name="luan.com.androidmvp.view.PhotoActivity"

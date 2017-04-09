@@ -1,6 +1,7 @@
 package luan.com.androidmvp.view;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,12 +35,15 @@ public class PhotoAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        PhotoViewHolder mainViewHolder = (PhotoViewHolder) holder;
+        PhotoViewHolder photoViewHolder = (PhotoViewHolder) holder;
         Photo photo = mPhotos.get(position);
+
+        final int color = Color.parseColor(photo.getColor());
+        photoViewHolder.mImgPhoto.setBackgroundColor(color);
 
         Glide.with(mContext)
                 .load(photo.getUrls().getRegular())
-                .into(mainViewHolder.mImgPhoto);
+                .into(photoViewHolder.mImgPhoto);
     }
 
     @Override
