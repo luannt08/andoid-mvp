@@ -3,7 +3,7 @@
 Applocation based on MVP, Dagger2, RxJava, RxAndroid.
 
 The MVP has populared and had tons tutorials, samples on internet. With my knowledge, I just have created this sample to demonstrate MVP basically.
-It will help you know: how we create code base, what the layers do, and compound with RxJava,RxAndroid & Dagger2.
+It will help you know: how to create code base, what the layers do, and compound with RxJava,RxAndroid & Dagger2.
 
 # License
 Copyright 2017, LNguyen       
